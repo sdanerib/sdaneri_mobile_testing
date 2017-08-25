@@ -1,0 +1,18 @@
+default:            -p web
+web:                TARGET=local    PLATFORM=web        -p chrome               -p web_tests      -p local_reporting
+android_mobile:     TARGET=local    PLATFORM=android    -p android44_galaxys4   -p android_tests  -p local_reporting
+ios_mobile:         TARGET=local    PLATFORM=ios        -p ios92_iphone6        -p ios_tests      -p local_reporting
+
+
+# Capabilities
+chrome:             CAPABILITIES=caps_web_chrome
+ios92_iphone6:      CAPABILITIES=caps_ios92_iphone6
+android44_galaxys4: CAPABILITIES=caps_android44_galaxys4
+
+# Tests to execute
+web_tests:          --tags @run_web
+android_tests:      --tags @run_android
+ios_tests:          --tags @run_ios
+
+# Tests Reporting
+local_reporting:    --format html  --out report/<%=Time.now.strftime("%d%m%Y_%H%M%S")%>-report.html --format pretty

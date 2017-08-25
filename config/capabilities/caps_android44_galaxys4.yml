@@ -1,0 +1,4 @@
+platform_name: 'Android'
+platform_version: '5.0.1'
+device_name: 'Samsung Galaxy S4'
+appium_version: '1.5.3'
